@@ -1,0 +1,35 @@
+.chatContainer {
+  display: flex;
+  width: 60%;
+  min-width: 550px;
+  height: 60%;
+  margin: auto;
+}
+.chatBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  height: 100%;
+  width: 80%;
+}
+.sideBox {
+  width: 20%;
+}
+
+@media (max-width: 700px) {
+  .chatContainer {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+  }
+
+  .sideBox {
+    display: none;
+  }
+  .chatBox {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,46 @@
+.joinContainer {
+  width: 30%;
+  padding: 1rem;
+}
+
+.headingBox {
+  color: #e3b505;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.headingTop {
+  margin-bottom: 1.25rem;
+  font-size: 2.5rem;
+}
+
+.joinInput {
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.joinBtn {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin: 1.25rem 0;
+  font-weight: bold;
+  color: #1a1a1d;
+  background: #e3b505;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.joinBtn:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .joinContainer {
+    width: 90%;
+  }
+}

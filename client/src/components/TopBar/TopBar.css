@@ -1,0 +1,38 @@
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e3b505;
+  height: 60px;
+  width: 100%;
+}
+
+.innerTop {
+  display: flex;
+  flex: 0.5;
+  align-items: center;
+  height: 60px;
+}
+
+.leftBox {
+  margin-left: 5%;
+  color: #fff;
+}
+.leftBox i {
+  color: #14213d;
+  font-weight: bold;
+}
+
+.rightBox {
+  justify-content: flex-end;
+  margin-right: 5%;
+}
+
+.leave {
+  text-decoration: none;
+  color: #14213d;
+  font-weight: bold;
+}
+.leave:hover {
+  color: #fff;
+}
