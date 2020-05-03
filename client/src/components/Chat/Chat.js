@@ -32,7 +32,7 @@ const Chat = ({ location }) => {
     socket.emit('join', { name, room }, error => {
       if (error) {
         history.push('/'); // redirect back to home when username is taken;
-        console.log(error);
+        console.error(error);
         return;
       }
     });
