@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import queryString from 'query-string';
 import io from 'socket.io-client';
 import Messages from '../Messages/Messages';
@@ -17,6 +18,8 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
   const ENDPOINT = 'localhost:5000';
 
+  let history = useHistory();
+
   // 'location' is passed in props from react-router and is used to get the url data,
   useEffect(() => {
     const { name, room } = queryString.parse(location.search); // parse query string
@@ -26,8 +29,9 @@ const Chat = ({ location }) => {
     setRoom(room);
     setName(name);
     //  emit event (event, data to send, callback)
-    socket.emit('join', { name, room }, (error) => {
+    socket.emit('join', { name, room }, error => {
       if (error) {
+        history.push('/'); // redirect back to home when username is taken;
         console.log(error);
         return;
       }
@@ -35,8 +39,8 @@ const Chat = ({ location }) => {
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
-    socket.on('message', (message) => {
-      setMessages((messages) => [...messages, message]);
+    socket.on('message', message => {
+      setMessages(messages => [...messages, message]);
     });
     socket.on('roomData', ({ users }) => {
       setUsers(users);
@@ -44,7 +48,7 @@ const Chat = ({ location }) => {
   }, []);
 
   // send message and clear input field in the callback
-  const sendMessage = (e) => {
+  const sendMessage = e => {
     e.preventDefault();
     if (message) {
       socket.emit('sendMessage', message, () => setMessage(''));
